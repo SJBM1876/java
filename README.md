@@ -1,4 +1,10 @@
 # java
+
+
+- I will learn Java by following the below Learning Plan  starting on 04/11/2024.
+
+- I will finish the Learning Plan linked above by 29/11/2024.
+
 Learning Plan (draft)
 Week 1: Java Fundamentals
 #checkoutTheDocs: Read documentation on Java basics. Suggested resources:
