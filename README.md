@@ -21,6 +21,7 @@ Day 3: Write your first program, "Hello, World!"
 Day 4-5:
 Dive into basic syntax: variables, data types, operators, and control structures (if-else, loops).
 Mini Project: Build a simple Rock, Paper, Scissors game using Math.random(), Math.round(), and Scanner to take user input.
+
 Week 2: Object-Oriented Programming (OOP) in Java
 Object-Oriented Programming Concepts:
 
@@ -35,6 +36,7 @@ Mini Project:
 
 Option 1: Scooter Application - Create a class to model scooters.
 Option 2: Employee Records System - Set up an Employee class and subclasses (Manager, SalesPerson). Add methods for employee actions and a small menu to manage records.
+
 Week 3: Advanced Java Concepts
 Advanced Java Topics:
 
@@ -51,6 +53,7 @@ Mini Project:
 
 Option 1: Chat Application - Set up a simple text-based application that allows message exchange. Use multithreading for simultaneous actions and generics to manage different data types in the chat.
 Option 2: Multiplayer Game - Implement a simple multiplayer text-based game. Use threads to allow multiple players and collections to manage scores and player data.
+
 Week 4: File I/O, Networking, and Java Best Practices
 File I/O and Networking:
 
