@@ -5,111 +5,90 @@ public class PaperScissorsStone {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        while(true) {
-            //1. Random computer choice
+        // Best of three loop
+        while (true) {
+            // Initialize scores for the player and the computer
+            int playerScore = 0;  // Track player's score for the best-of-three match
+            int computerScore = 0;  // Track computer's score for the best-of-three match
 
-            // array of strings containing availiable choices.
-            String [] availableMoves = {"Paper", "Scissors", "Stone"};
+            // Play rounds until either the player or computer reaches 2 wins
+            while (playerScore < 2 && computerScore < 2) {  // Best of three condition
+                // 1. Random computer choice
+                String[] availableMoves = {"Paper", "Scissors", "Stone"};
+                String computerMove = availableMoves[new Random().nextInt(availableMoves.length)];
 
-            // Using random function on idices of array to choose a random move.
-            String computerMove = availableMoves[new Random().nextInt(availableMoves.length)];
+                System.out.println("The computer has made its choice.");
+                System.out.println();
+                System.out.println("Now it's your turn to choose. Good Luck!");
+                System.out.println();
 
-            System.out.println("The computer has made it's choice.");
-            System.out.println();
-            System.out.println("Now it's your turn to choose. Good Luck!");
-            System.out.println();
+                // 2. Player's choice
+                String userMove;
+                while (true) {
+                    System.out.println("Please choose your move from 'Paper', 'Scissors', or 'Stone'");
+                    System.out.print("Please enter your choice: ");
+                    userMove = scanner.nextLine().toLowerCase();  // Convert input to lowercase
 
-            //2. Player's choice
+                    // Check if player has made a valid choice (in lowercase)
+                    if (userMove.equals("paper") || userMove.equals("scissors") || userMove.equals("stone")) {
+                        System.out.println();
+                        break;
+                    }
 
-            // input
-            String userMove;
-
-            // Loop until player makes a valid choice.
-            while(true) {
-                System.out.println("Please choose your move from the following available moves: 'Paper', 'Scissors' or 'Stone'");
-                System.out.println("Please enter your choice: ");
-                userMove = scanner.nextLine().toLowerCase();
-
-                // Check if player has made a valid choice.
-                if(userMove.equals("Paper") || userMove.equals("Scissors") || userMove.equals("Stone")) {
+                    System.out.println("Invalid Move!! Please choose from 'Paper', 'Scissors', or 'Stone'");
                     System.out.println();
-                    break;
                 }
 
-                // If player's input was invalid.
+                // Now print the computer's random choice
+                System.out.println("The computer chose: " + computerMove);
+
+                // 3. Determining the winner for the round
+                if (userMove.equals(computerMove.toLowerCase())) {  // Compare in lowercase
+                    System.out.println("It's a draw!");
+                } else if (userMove.equals("paper") && computerMove.equals("Scissors") ||
+                        userMove.equals("scissors") && computerMove.equals("Stone") ||
+                        userMove.equals("stone") && computerMove.equals("Paper")) {
+                    System.out.println("The Computer Won this round!");
+                    computerScore++;  // Increment computer score for winning the round
+                } else {
+                    System.out.println("You Won this round!!");
+                    playerScore++;  // Increment player score for winning the round
+                }
+
+                // Display current scores after each round
+                System.out.println("Score: Player " + playerScore + " - Computer " + computerScore);
+                System.out.println("**************************************************");
                 System.out.println();
-                System.out.println("Invaild Move!!");
-                System.out.println("Please choose from 'Paper', 'Scissors' or 'Stone'");
-                System.out.println();
             }
 
-            // Now print the computer's random choice.
-            System.out.println("The computer chose : " + computerMove);
-
-            //3. Comparing the player and the computer's choice and determining the winner.
-
-            // Check if the choices made are the same.
-
-            if(userMove.equals(computerMove)) {
-                System.out.println("It's a draw!");
+            // Announce the winner of the best of three
+            if (playerScore == 2) {  // Check if player reached 2 points
+                System.out.println("Congratulations! You won the best of three!");
+            } else {  // If computer reached 2 points
+                System.out.println("The computer won the best of three. Better luck next time!");
             }
 
-            // Check other possibilities.
-            else if (userMove.equals("Paper")) {
-                if (computerMove.equals("Scissors")) {
-                    System.out.println("The Computer Won!");
-                    System.out.println("Better luck next time!");
-                }
-                else if (computerMove.equals("Stone")) {
-                    System.out.println("You Won!!");
-                    System.out.println("Congratulations!");
-                }
-            }
-            else if (userMove.equals("Scissors")) {
-                if (computerMove.equals("Stone")) {
-                    System.out.println("The Computer Won!");
-                    System.out.println("Better luck next time!");
-                }
-                else if (computerMove.equals("Paper")) {
-                    System.out.println("You Won!!");
-                    System.out.println("Better luck next time!");
-
-                }
-            }
-            else if (userMove.equals("Stone")) {
-                if (computerMove.equals("Paper")) {
-                    System.out.println("The Computer Won!");
-                    System.out.println("Better luck next time!");
-                }
-                else if (computerMove.equals("Scissors")) {
-                    System.out.println("You Won!!");
-                    System.out.println("Better luck next time!");
-                }
-            }
-
-            System.out.println();
+            // Ask if the player wants to play again
             String playAgain;
-            System.out.println("Would you like to play again? ");
+            System.out.println("Would you like to play another best of three?");
 
-            // Loop until the player chooses a valid option.
-            while(true) {
-
-                System.out.println("Type 'yes' or 'no'");
+            while (true) {
+                System.out.print("Type 'yes' or 'no': ");
                 playAgain = scanner.nextLine().toLowerCase();
 
                 if (playAgain.equals("yes") || playAgain.equals("no")) {
-                    System.out.println();
                     System.out.println("**************************************************");
-                    System.out.println();
                     break;
                 }
-                System.out.println();
-                System.out.println("Inalid Input!");
-                System.out.println();
+                System.out.println("Invalid Input!");
             }
-            if(playAgain.equals("no") || playAgain.equals("No")) {
+
+            // Exit the game if the player chooses "no"
+            if (playAgain.equals("no")) {
+                System.out.println("Thanks for playing!");
                 break;
             }
         }
     }
 }
+
