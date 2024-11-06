@@ -14,8 +14,8 @@ public class PaperScissorsStone {
             // Play rounds until either the player or computer reaches 2 wins
             while (playerScore < 2 && computerScore < 2) {  // Best of three condition
                 // 1. Random computer choice
-                String[] availableMoves = {"Paper", "Scissors", "Stone"};
-                String computerMove = availableMoves[new Random().nextInt(availableMoves.length)];
+                String[] availableMoves = {"Paper", "Scissors", "Stone"}; // Creates an array of strings.
+                String computerMove = availableMoves[new Random().nextInt(availableMoves.length)];// Generates random integer between 0 and array length which is then stored in computer move.
 
                 System.out.println("The computer has made its choice.");
                 System.out.println();
@@ -27,7 +27,7 @@ public class PaperScissorsStone {
                 while (true) {
                     System.out.println("Please choose your move from 'Paper', 'Scissors', or 'Stone'");
                     System.out.print("Please enter your choice: ");
-                    userMove = scanner.nextLine().toLowerCase();  // Convert input to lowercase
+                    userMove = scanner.nextLine().toLowerCase();  // Reads everything the user types and convert input to lowercase
 
                     // Check if player has made a valid choice (in lowercase)
                     if (userMove.equals("paper") || userMove.equals("scissors") || userMove.equals("stone")) {
@@ -87,6 +87,7 @@ public class PaperScissorsStone {
             if (playAgain.equals("no")) {
                 System.out.println("Thanks for playing!");
                 break;
+
             }
         }
     }
